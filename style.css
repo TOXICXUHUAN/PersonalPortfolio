@@ -388,6 +388,24 @@ figure:hover img {
   transform: translateY(-0.4rem);
 }
 
+/* An embedded, playable piece ~ see the MuseBeats section. Same frame as the
+   images, but no height cap: the score is not a photo and scales to its box.
+
+   media/musebeats.html is built to be exactly the score's 1200x480 ratio, so
+   the ratio below is all the sizing either side needs ~ no height script, and
+   nothing to go stale if the score is ever redrawn at another size. Black
+   rather than --surface because the score paints its own black ground, and a
+   pale strip around it in the light theme reads as a mistake. */
+.player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1200 / 480;
+  border: 0;
+  border-radius: var(--radius);
+  background: #000;
+  box-shadow: var(--shadow);
+}
+
 figcaption {
   margin-block-start: 0.9rem;
   padding-inline-start: 0.8rem;
@@ -424,6 +442,7 @@ figcaption {
 
   .project>figure,
   .project>video,
+  .project>.player,
   .project>p:not(.meta) {
     grid-column: span 6;
   }
